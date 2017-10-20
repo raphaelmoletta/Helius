@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Helius System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="styles/helius.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true" />
+            <p:tabView dynamic="true" cache="true">
+                <p:tab title="Inicio">
+                    <ui:include src="WEB-INF/private/start.xhtml" />
+                </p:tab>
+                <p:tab title="Status">
+                    <ui:include src="WEB-INF/private/status.xhtml" />
+                </p:tab>
+                <p:tab title="Configurações">
+                    <ui:include src="WEB-INF/private/configurations.xhtml" />
+                </p:tab>
+            </p:tabView>
+        </h:form>
+    </h:body>
+</html>

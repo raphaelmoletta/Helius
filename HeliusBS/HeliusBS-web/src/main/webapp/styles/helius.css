@@ -1,0 +1,26 @@
+/* 
+    Created on : Oct 18, 2017, 1:37:47 PM
+    Author     : Raphael Zagonel Moletta <raphael.moletta@gmail.com>
+*/
+
+.cpos1 {
+    /*background-color: red;*/
+    width: 150px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.cpos2 {
+    /*background-color: pink;*/
+    display: inline-block;
+    width: 165px;
+}
+
+.cpos3 {
+    /*background-color: green;*/
+}
+
+.cdiv {
+    padding-bottom: 10px;
+    display: flex;
+}
