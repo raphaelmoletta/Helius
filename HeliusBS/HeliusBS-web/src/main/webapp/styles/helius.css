@@ -5,7 +5,7 @@
 
 .cpos1 {
     /*background-color: red;*/
-    width: 150px;
+    width: 200px;
     display: inline-block;
     vertical-align: baseline;
 }
@@ -23,4 +23,25 @@
 .cdiv {
     padding-bottom: 10px;
     display: flex;
+}
+
+.spos1 {
+    /*background-color: red;*/
+    width: 150px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.spos2 {
+    /*background-color: pink;*/
+    display: inline-block;
+    list-style-type: none;
+}
+
+li[name="check"] {
+    background-color: green !important;
+}
+
+li[name="closethick"] {
+    background-color: red !important;
 }

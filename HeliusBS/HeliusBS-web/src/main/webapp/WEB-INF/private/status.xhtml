@@ -5,4 +5,39 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
     <p:outputLabel />
+    <h:form id="formStatus">
+        <p:growl id="statusMessages" showDetail="true" />
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="Servidor: " /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.server}">
+                    <span class="ui-icon ui-icon-#{status.server}"/>
+                </li>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="Thread UDP: " /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.udp}">
+                    <span class="ui-icon ui-icon-#{status.udp}"/>
+                </li>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="Thread Serial: " /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.serial}">
+                    <span class="ui-icon ui-icon-#{status.serial}"/>
+                </li>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="Conexão DB: " /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.db}">
+                    <span class="ui-icon ui-icon-#{status.db}"/>
+                </li>
+            </span>
+        </div>
+    </h:form>
 </ui:composition>

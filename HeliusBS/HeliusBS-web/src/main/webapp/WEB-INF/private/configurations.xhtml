@@ -5,7 +5,7 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
     <h:form id="formConf">
-        <p:growl id="confMessages" showDetail="true" />
+       <p:growl id="confMessages" showDetail="true" />
         <div class="cdiv">
             <span class="cpos1"><p:outputLabel for="udpPort" value="Porta UDP: " /></span>
             <span class="cpos2"><p:inputText id="udpPort" disabled="#{configurations.udpEnabled}" size="5" value="#{configurations.udpPort}"/></span>
@@ -29,10 +29,23 @@
             </span>
         </div>
         <div class="cdiv">
-            <p:fileUpload fileUploadListener="#{configurations.handleFileUpload}" 
+            <span class="cpos1"><p:outputLabel for="fileUpload" value="Tabela do Fabricante: " /></span>
+            <span >
+                <p:fileUpload id="fileUpload" fileUploadListener="#{configurations.handleFileUpload}" 
                           mode="advanced" skinSimple="false" update="confMessages"
                           allowTypes="/(\.|\/)(csv)$/" fileLimit="1"
                           dragDropSupport="true"/>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="cpos1"><p:outputLabel for="dbPort" value="Porta do Banco de Dados: " /></span>
+            <span class="cpos2"><p:inputText id="dbPort" size="5" value="#{configurations.dbPort}"/></span>
+            <span class="cpos3"></span>
+        </div>
+        <div class="cdiv">
+            <span class="cpos1"></span>
+            <span class="cpos2"></span>
+            <span class="cpos3"></span>
         </div>
     </h:form>
 </ui:composition>

@@ -11,6 +11,19 @@
         <link href="styles/helius.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
+        <img src="images/Logo128.png" alt="Logotipo"/>
+        <p:outputLabel for="advanced" value="Advanced:" />
+        <p:selectOneListbox id="advanced" value="#{selectOneView.theme}" converter="themeConverter" var="t" filter="true" filterMatchMode="contains">
+            <f:selectItems value="#{selectOneView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
+
+            <p:column>
+                <h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
+            </p:column>
+
+            <p:column>
+                <h:outputText value="#{t.displayName}" />
+            </p:column>
+        </p:selectOneListbox>
         <h:form id="form">
             <p:growl id="msgs" showDetail="true" />
             <p:tabView dynamic="true" cache="true">

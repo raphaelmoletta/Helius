@@ -24,23 +24,23 @@ public class ConfigurationsEJB {
     }
 
     public void setSerialPort(String serialPort) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Serial port: " + serialPort);
     }
 
     public boolean setSerialEnable(boolean serialEnabled) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return serialEnabled;
     }
 
     public boolean getSerialEnable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
-    public void isUdpEnabled() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean isUdpEnabled() {
+        return false;
     }
 
     public boolean setUdpEnabled(boolean udpEnabled) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
     
 }

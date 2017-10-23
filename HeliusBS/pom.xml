@@ -11,5 +11,6 @@
     <module>HeliusBS-web</module>
     <module>HeliusBS-ejb</module>
     <module>HeliusBS-data</module>
+    <module>HeliusBS-conf</module>
   </modules>
 </project>

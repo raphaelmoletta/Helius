@@ -22,12 +22,12 @@ public class ConfigurationsMB implements Serializable {
     private static final long serialVersionUID = 4966650781932239884L;
     
     private boolean udpEnabled = false, serialEnabled = false;
-    private int udpPort = 0;
+    private int udpPort = 11000, dbPort = 3306;
     private String serialPort = "";
     private List<String> serialPorts;
 
     public boolean isUdpEnabled() {
-        HeliusEJB.configuration.isUdpEnabled();
+        this.udpEnabled = HeliusEJB.configuration.isUdpEnabled();
         return udpEnabled;
     }
 
@@ -68,6 +68,14 @@ public class ConfigurationsMB implements Serializable {
 
     public void setSerialPorts(List<String> serialPorts) {
         //Leave Blank
+    }
+
+    public int getDbPort() {
+        return dbPort;
+    }
+
+    public void setDbPort(int dbPort) {
+        this.dbPort = dbPort;
     }
     
     public void handleFileUpload (FileUploadEvent event) {
