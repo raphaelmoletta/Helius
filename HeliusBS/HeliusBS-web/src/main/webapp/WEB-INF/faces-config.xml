@@ -9,7 +9,7 @@
             <supported-locale>en_US</supported-locale>
         </locale-config>
         <resource-bundle>
-            <base-name>br.edu.utfpr.dainf.eex23.helius.bs.web.Messages</base-name>
+            <base-name>br.edu.utfpr.dainf.eex23.helius.bs.web.i18n.Messages</base-name>
             <var>msg</var>
         </resource-bundle>
     </application>

@@ -1,6 +1,5 @@
 package br.edu.utfpr.dainf.eex23.helius.heliusbs.conf;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Util.baseName;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

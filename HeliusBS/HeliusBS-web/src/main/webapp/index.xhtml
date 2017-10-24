@@ -6,34 +6,28 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Helius System</title>
+        <title>#{msg['system.name']}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="styles/helius.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
-        <img src="images/Logo128.png" alt="Logotipo"/>
-        <p:outputLabel for="advanced" value="Advanced:" />
-        <p:selectOneListbox id="advanced" value="#{selectOneView.theme}" converter="themeConverter" var="t" filter="true" filterMatchMode="contains">
-            <f:selectItems value="#{selectOneView.themes}" var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" />
-
-            <p:column>
-                <h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
-            </p:column>
-
-            <p:column>
-                <h:outputText value="#{t.displayName}" />
-            </p:column>
-        </p:selectOneListbox>
+        <h:form id="formI18N">
+        <img src="images/Logo128.png" alt="#{msg['system.logo']}"/>
+        <h:selectOneMenu value="#{language.localeCode}" onchange="submit()"
+                         valueChangeListener="#{language.countryLocaleCodeChanged}">
+            <f:selectItems value="#{language.countriesInMap}" />
+        </h:selectOneMenu>
+        </h:form>
         <h:form id="form">
             <p:growl id="msgs" showDetail="true" />
             <p:tabView dynamic="true" cache="true">
-                <p:tab title="Inicio">
+                <p:tab title="#{msg['system.start']}">
                     <ui:include src="WEB-INF/private/start.xhtml" />
                 </p:tab>
-                <p:tab title="Status">
+                <p:tab title="#{msg['system.status']}">
                     <ui:include src="WEB-INF/private/status.xhtml" />
                 </p:tab>
-                <p:tab title="Configurações">
+                <p:tab title="#{msg['system.configurations']}">
                     <ui:include src="WEB-INF/private/configurations.xhtml" />
                 </p:tab>
             </p:tabView>

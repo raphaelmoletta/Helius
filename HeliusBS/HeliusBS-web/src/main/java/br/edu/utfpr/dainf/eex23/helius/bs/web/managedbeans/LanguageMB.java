@@ -1,7 +1,7 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.web.managedbeans;
 
 import java.io.Serializable;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
@@ -24,9 +24,9 @@ public class LanguageMB implements Serializable {
     private static final Map<String, Object> countries;
 
     static {
-        countries = new LinkedHashMap<>();
-        countries.put("Português", Locale.forLanguageTag("pt_BR")); //label, value
+        countries = new HashMap<>();
         countries.put("Inglês", Locale.forLanguageTag("en_US"));
+        countries.put("Português", Locale.forLanguageTag("pt_BR")); //label, value
     }
 
     public Map<String, Object> getCountriesInMap() {

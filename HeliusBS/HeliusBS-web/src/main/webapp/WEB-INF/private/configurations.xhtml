@@ -7,7 +7,7 @@
     <h:form id="formConf">
        <p:growl id="confMessages" showDetail="true" />
         <div class="cdiv">
-            <span class="cpos1"><p:outputLabel for="udpPort" value="Porta UDP: " /></span>
+            <span class="cpos1"><p:outputLabel for="udpPort" value="#{msg['configurations.udpport']}" /></span>
             <span class="cpos2"><p:inputText id="udpPort" disabled="#{configurations.udpEnabled}" size="5" value="#{configurations.udpPort}"/></span>
             <span class="cpos3">
                 <p:inputSwitch id="udpEnable" value="#{configurations.udpEnabled}">
@@ -16,7 +16,7 @@
             </span>
         </div>
         <div class="cdiv">
-            <span class="cpos1"><p:outputLabel for="serialList" value="Porta Serial: " /></span>
+            <span class="cpos1"><p:outputLabel for="serialList" value="#{msg['configurations.serialport']} " /></span>
             <span class="cpos2">
                 <p:selectOneListbox id="serialList" disabled="#{configurations.serialEnabled}" value="#{configurations.serialPort}">
                     <f:selectItems value="#{configurations.serialPorts}" var="p" />
@@ -29,7 +29,7 @@
             </span>
         </div>
         <div class="cdiv">
-            <span class="cpos1"><p:outputLabel for="fileUpload" value="Tabela do Fabricante: " /></span>
+            <span class="cpos1"><p:outputLabel for="fileUpload" value="#{msg['configurations.table']}" /></span>
             <span >
                 <p:fileUpload id="fileUpload" fileUploadListener="#{configurations.handleFileUpload}" 
                           mode="advanced" skinSimple="false" update="confMessages"
@@ -38,7 +38,7 @@
             </span>
         </div>
         <div class="cdiv">
-            <span class="cpos1"><p:outputLabel for="dbPort" value="Porta do Banco de Dados: " /></span>
+            <span class="cpos1"><p:outputLabel for="dbPort" value="#{msg['configurations.dbport']}" /></span>
             <span class="cpos2"><p:inputText id="dbPort" size="5" value="#{configurations.dbPort}"/></span>
             <span class="cpos3"></span>
         </div>
