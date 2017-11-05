@@ -1,6 +1,6 @@
 /* 
     Created on : Oct 18, 2017, 1:37:47 PM
-    Author     : Raphael Zagonel Moletta <raphael.moletta@gmail.com>
+    Author     : Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
 */
 
 .search {
@@ -39,6 +39,19 @@
 }
 
 .spos2 {
+    /*background-color: pink;*/
+    display: inline-block;
+    list-style-type: none;
+}
+
+.tpos1 {
+    /*background-color: red;*/
+    width: 300px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.tpos2 {
     /*background-color: pink;*/
     display: inline-block;
     list-style-type: none;

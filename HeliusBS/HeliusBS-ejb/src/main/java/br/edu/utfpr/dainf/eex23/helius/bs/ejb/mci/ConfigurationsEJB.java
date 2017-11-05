@@ -1,12 +1,16 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.mci;
 
+import gnu.io.CommPort;
+import gnu.io.CommPortIdentifier;
+import gnu.io.PortInUseException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
  *
- * @author Raphael Zagonel Moletta <raphael.moletta@gmail.com>
+ * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
  */
 public class ConfigurationsEJB {
 
@@ -16,10 +20,25 @@ public class ConfigurationsEJB {
 
     public List<String> getSerialPorts() {
         List<String> serialPorts = new ArrayList<>();
-        serialPorts.add("COM1");
-        serialPorts.add("COM2");
-        serialPorts.add("COM3");
-        serialPorts.add("COM4");
+        Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+        while (ports.hasMoreElements()) {
+            CommPortIdentifier com = (CommPortIdentifier) ports.nextElement();
+            switch (com.getPortType()) {
+            case CommPortIdentifier.PORT_SERIAL:
+                try {
+                    CommPort thePort = com.open("CommUtil", 50);
+                    thePort.close();
+                    serialPorts.add(com.getName());
+                } catch (PortInUseException e) {
+                    System.out.println("Port, "  + com.getName() +  ", is in use.");
+                } catch (Exception e) {
+                    System.err.println("Failed to open port " + com.getName());
+                }
+            }
+        }
+        if(serialPorts.isEmpty()) {
+            serialPorts.add("NA");
+        }
         return serialPorts;
     }
 
@@ -40,6 +59,7 @@ public class ConfigurationsEJB {
     }
 
     public boolean setUdpEnabled(boolean udpEnabled) {
+        
         return false;
     }
     

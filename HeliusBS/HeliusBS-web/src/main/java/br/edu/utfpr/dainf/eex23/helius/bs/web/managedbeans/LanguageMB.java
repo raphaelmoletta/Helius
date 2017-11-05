@@ -1,61 +1,85 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.web.managedbeans;
 
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
+import javax.inject.Named;
 
 /**
  *
  * @author rapha
  */
-@ManagedBean(name = "language")
+@Named(value = "language")
 @SessionScoped
 public class LanguageMB implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 294464674528869200L;
 
-    private String localeCode;
-
-    private static final Map<String, Object> countries;
+    private Locale locale;
+    private static final List<Locale> COUNTRIES;
 
     static {
-        countries = new HashMap<>();
-        countries.put("Inglês", Locale.forLanguageTag("en_US"));
-        countries.put("Português", Locale.forLanguageTag("pt_BR")); //label, value
+        COUNTRIES = new ArrayList<>();
+        COUNTRIES.add(Locale.forLanguageTag("pt_BR"));
+        COUNTRIES.add(Locale.forLanguageTag("en_US"));
+        Collections.sort(COUNTRIES, new Comparator<Locale>() {
+            @Override
+            public int compare(Locale o1, Locale o2) {
+                return o1.getDisplayLanguage().compareTo(o2.getDisplayLanguage());
+            }
+
+        });
     }
 
-    public Map<String, Object> getCountriesInMap() {
-        return countries;
+    @PostConstruct
+    public void init() {
+        locale = FacesContext.getCurrentInstance()
+                .getViewRoot().getLocale();
+        if(!COUNTRIES.contains(locale)) {
+            locale = Locale.getDefault();
+        }
+        /*
+        Locale l = FacesContext.getCurrentInstance()
+                .getViewRoot().getLocale();
+        System.out.println("\ngetCountry :" + l.getCountry());
+        System.out.println("\ngetDisplayCountry :" + l.getDisplayCountry());
+        System.out.println("\ngetDisplayLanguage :" + l.getDisplayLanguage());
+        System.out.println("\ngetDisplayName :" + l.getDisplayName());
+        System.out.println("\ngetDisplayScript :" + l.getDisplayScript());
+        System.out.println("\ngetDisplayVariant :" + l.getDisplayVariant());
+        System.out.println("\ngetISO3Country :" + l.getISO3Country());
+        System.out.println("\ngetISO3Language :" + l.getISO3Language());
+        System.out.println("\ngetLanguage :" + l.getLanguage());
+        System.out.println("\ngetScript :" + l.getScript());
+        System.out.println("\ngetVariant :" + l.getVariant());
+        System.out.println("\toLanguageTag :" + l.toLanguageTag());
+        */
     }
 
-    public String getLocaleCode() {
-        return localeCode;
+    public List<Locale> getCountriesInMap() {
+        return COUNTRIES;
     }
 
-    public void setLocaleCode(String localeCode) {
-        this.localeCode = localeCode;
+    public Locale getLocale() {
+        return locale;
+    }
+
+    public void setLocale(Locale locale) {
+        this.locale = locale;
     }
 
     //value change event listener
     public void countryLocaleCodeChanged(ValueChangeEvent e) {
+        FacesContext.getCurrentInstance()
+                .getViewRoot().setLocale((Locale) e.getNewValue());
 
-        String newLocaleValue = e.getNewValue().toString();
-
-        //loop country map to compare the locale code
-        for (Map.Entry<String, Object> entry : countries.entrySet()) {
-
-            if (entry.getValue().toString().equals(newLocaleValue)) {
-
-                FacesContext.getCurrentInstance()
-                        .getViewRoot().setLocale((Locale) entry.getValue());
-
-            }
-        }
     }
 
 }

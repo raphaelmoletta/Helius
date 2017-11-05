@@ -6,17 +6,17 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import org.primefaces.event.FileUploadEvent;
 
 /**
  *
- * @author Raphael Zagonel Moletta <raphael.moletta@gmail.com>
+ * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
  */
-@ManagedBean(name = "configurations")
+@Named(value = "configurations")
 @SessionScoped
 public class ConfigurationsMB implements Serializable {
     private static final long serialVersionUID = 4966650781932239884L;

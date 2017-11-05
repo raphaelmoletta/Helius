@@ -12,5 +12,6 @@
     <module>HeliusBS-ejb</module>
     <module>HeliusBS-data</module>
     <module>HeliusBS-conf</module>
+    <module>../Helius-beans</module>
   </modules>
 </project>

@@ -5,11 +5,15 @@
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
     <h:form id="formStart">
-        <div>
-            <p:outputLabel value="#{msg['start.packages']}"></p:outputLabel>
+        <div class="cdiv">
+            <p:outputLabel class="tpos1" value="#{msg['start.packages']}"/>
+            <p:inputText class="tpos2" readonly="true" value="#{start.packagesTraffic}"/>
         </div>
-        <div>
-            <p:outputLabel value="#{msg['start.esSending']}"></p:outputLabel>
+        <div class="cdiv">
+            <p:outputLabel class="tpos1" value="#{msg['start.esSending']}"/>
+            <p:repeat value="#{start.embeddedSystemsSending}" var="es">
+                <p:inputText class="tpos2" readonly="true" value="#{es}"/>
+            </p:repeat>
         </div>
     </h:form>
 </ui:composition>
