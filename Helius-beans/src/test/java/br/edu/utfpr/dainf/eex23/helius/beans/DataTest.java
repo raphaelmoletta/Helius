@@ -1,6 +1,7 @@
 package br.edu.utfpr.dainf.eex23.helius.beans;
 
 import com.google.gson.Gson;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,8 +40,18 @@ public class DataTest {
     @Test
     public void testGetStatus() {
         System.out.println("========= getStatus =========");
+        Data data = new Data();
+        data.setId("1");
+        data.setStatus(Data.STATUS.empty);
+        ArrayList<Eletrical> eletrical = new ArrayList<>();
+        ArrayList<Wheather> wheather = new ArrayList<>();
+        eletrical.add(new Eletrical("Painel", 1.51, 2.34));
+        wheather.add(new Wheather("Sensores 1", 3.49, 4.11));
+        data.setEletrical(eletrical);
+        data.setWheater(wheather);
         Data instance = new Data();
         Gson g = new Gson();
+        System.out.println(g.toJson(data, Data.class));
         System.out.println("# create empty");
         System.out.println(g.toJson(instance, Data.class));
         assertEquals(Data.STATUS.empty, instance.getStatus());
