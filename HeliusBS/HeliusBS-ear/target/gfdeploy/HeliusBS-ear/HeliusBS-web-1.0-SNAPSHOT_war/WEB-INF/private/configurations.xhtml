@@ -1,0 +1,51 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <h:form id="formConf">
+       <p:growl id="confMessages" showDetail="true" />
+        <div class="cdiv">
+            <span class="cpos1"><p:outputLabel for="udpPort" value="#{msg['configurations.udpport']}" /></span>
+            <span class="cpos2"><p:inputText id="udpPort" disabled="#{configurations.udpEnabled}" size="5" value="#{configurations.udpPort}"/></span>
+            <span class="cpos3">
+                <p:inputSwitch id="udpEnable" value="#{configurations.udpEnabled}">
+                    <p:ajax update="formConf"/>
+                </p:inputSwitch>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="cpos1"><p:outputLabel for="serialList" value="#{msg['configurations.serialport']} " /></span>
+            <span class="cpos2">
+                <p:selectOneListbox id="serialList" disabled="#{configurations.serialEnabled}" value="#{configurations.serialPort}">
+                    <f:selectItems value="#{configurations.serialPorts}" var="p" />
+                </p:selectOneListbox>
+            </span>
+            <span class="cpos3">
+                <p:inputSwitch id="serialEnable" value="#{configurations.serialEnabled}">
+                    <p:ajax update="formConf"/>
+                </p:inputSwitch>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="cpos1"><p:outputLabel for="fileUpload" value="#{msg['configurations.table']}" /></span>
+            <span >
+                <p:fileUpload id="fileUpload" fileUploadListener="#{configurations.handleFileUpload}" 
+                          mode="advanced" skinSimple="false" update="confMessages"
+                          allowTypes="/(\.|\/)(csv)$/" fileLimit="1"
+                          dragDropSupport="true"/>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="cpos1"><p:outputLabel for="dbPort" value="#{msg['configurations.dbport']}" /></span>
+            <span class="cpos2"><p:inputText id="dbPort" size="5" value="#{configurations.dbPort}"/></span>
+            <span class="cpos3"></span>
+        </div>
+        <div class="cdiv">
+            <span class="cpos1"></span>
+            <span class="cpos2"></span>
+            <span class="cpos3"></span>
+        </div>
+    </h:form>
+</ui:composition>

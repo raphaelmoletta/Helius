@@ -1,5 +1,6 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.mci;
 
+import br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads.ThreadPool;
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;
@@ -41,25 +42,20 @@ public class ConfigurationsEJB {
         }
         return serialPorts;
     }
-
-    public void setSerialPort(String serialPort) {
-        System.out.println("Serial port: " + serialPort);
-    }
-
-    public boolean setSerialEnable(boolean serialEnabled) {
-        return serialEnabled;
-    }
-
-    public boolean getSerialEnable() {
+    
+    public boolean startSerial(String port) {
         return false;
     }
-
-    public boolean isUdpEnabled() {
+    
+    public boolean stopSerial(){
         return false;
     }
-
-    public boolean setUdpEnabled(boolean udpEnabled) {
-        
+    
+    public boolean startUDP(int port) {
+        return false;
+    }
+    
+    public boolean stopUDP() {
         return false;
     }
     

@@ -1,11 +1,6 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads;
 
-import gnu.io.CommPort;
-import gnu.io.CommPortIdentifier;
-import gnu.io.NoSuchPortException;
-import gnu.io.PortInUseException;
-import gnu.io.SerialPort;
-import gnu.io.UnsupportedCommOperationException;
+import java.io.InputStream;
 import javax.ejb.ConcurrencyManagement;
 import javax.ejb.ConcurrencyManagementType;
 import javax.ejb.Lock;
@@ -21,10 +16,13 @@ import javax.ejb.Startup;
 @ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
 @Startup
 public class ThreadCommunication {
-    
+
+    private InputStream inputStream;
+
     public ThreadCommunication() {
     }
 
+    /*
     @Lock(LockType.READ)
     public boolean isSerialEnable() {
         return false; //serialThread != null && serialThread.isAlive();
@@ -34,7 +32,7 @@ public class ThreadCommunication {
     public boolean isUDPEnable() {
         return false;// udpThread != null && udpThread.isAlive();
     }
-
+/*
     public boolean initSerial(String port) {
         try {
             CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(port);
@@ -53,5 +51,15 @@ public class ThreadCommunication {
         } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException e) {
         }
         return false;
+    }
+     */
+    @Lock(LockType.READ)
+    public InputStream getInputStream() {
+        return inputStream;
+    }
+
+    @Lock(LockType.WRITE)
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
     }
 }

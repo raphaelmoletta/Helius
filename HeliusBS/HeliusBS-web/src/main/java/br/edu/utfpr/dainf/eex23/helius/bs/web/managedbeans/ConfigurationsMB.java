@@ -27,12 +27,15 @@ public class ConfigurationsMB implements Serializable {
     private List<String> serialPorts;
 
     public boolean isUdpEnabled() {
-        this.udpEnabled = HeliusEJB.configuration.isUdpEnabled();
         return udpEnabled;
     }
 
     public void setUdpEnabled(boolean udpEnabled) {
-        this.udpEnabled = HeliusEJB.configuration.setUdpEnabled(udpEnabled);
+        if (udpEnabled) {
+            this.udpEnabled = HeliusEJB.configuration.startUDP(udpPort);
+        } else {
+            this.udpEnabled = HeliusEJB.configuration.stopUDP();
+        }
     }
 
     public int getUdpPort() {
@@ -44,12 +47,15 @@ public class ConfigurationsMB implements Serializable {
     }
 
     public boolean isSerialEnabled() {
-        this.serialEnabled = this.serialEnabled = HeliusEJB.configuration.getSerialEnable();
         return serialEnabled;
     }
 
     public void setSerialEnabled(boolean serialEnabled) {
-        this.serialEnabled = HeliusEJB.configuration.setSerialEnable(serialEnabled);
+        if (serialEnabled) {
+            this.serialEnabled = HeliusEJB.configuration.startSerial(serialPort);
+        } else {
+            this.serialEnabled = HeliusEJB.configuration.stopSerial();
+        }
     }
 
     public String getSerialPort() {
@@ -58,7 +64,6 @@ public class ConfigurationsMB implements Serializable {
 
     public void setSerialPort(String serialPort) {
         this.serialPort = serialPort;
-        HeliusEJB.configuration.setSerialPort(serialPort);
     }
 
     public List<String> getSerialPorts() {

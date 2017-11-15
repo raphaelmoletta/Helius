@@ -1,5 +1,5 @@
-br\edu\utfpr\dainf\eex23\helius\bs\web\managedbeans\LanguageMB.class
-br\edu\utfpr\dainf\eex23\helius\bs\web\managedbeans\StatusMB.class
-br\edu\utfpr\dainf\eex23\helius\bs\web\managedbeans\ConfigurationsMB.class
-br\edu\utfpr\dainf\eex23\helius\bs\web\managedbeans\LanguageMB$1.class
-br\edu\utfpr\dainf\eex23\helius\bs\web\managedbeans\StartMB.class
+br/edu/utfpr/dainf/eex23/helius/bs/web/managedbeans/StartMB.class
+br/edu/utfpr/dainf/eex23/helius/bs/web/managedbeans/LanguageMB.class
+br/edu/utfpr/dainf/eex23/helius/bs/web/managedbeans/StatusMB.class
+br/edu/utfpr/dainf/eex23/helius/bs/web/managedbeans/LanguageMB$1.class
+br/edu/utfpr/dainf/eex23/helius/bs/web/managedbeans/ConfigurationsMB.class
