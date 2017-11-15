@@ -1,0 +1,19 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <h:form id="formStart">
+        <div class="cdiv">
+            <p:outputLabel class="tpos1" value="#{msg['start.packages']}"/>
+            <p:inputText class="tpos2" readonly="true" value="#{start.packagesTraffic}"/>
+        </div>
+        <div class="cdiv">
+            <p:outputLabel class="tpos1" value="#{msg['start.esSending']}"/>
+            <p:repeat value="#{start.embeddedSystemsSending}" var="es">
+                <p:inputText class="tpos2" readonly="true" value="#{es}"/>
+            </p:repeat>
+        </div>
+    </h:form>
+</ui:composition>

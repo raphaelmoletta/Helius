@@ -1,7 +1,6 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  *
@@ -17,15 +16,16 @@ public class SerialThread extends Thread {
 
     @Override
     public void run() {
+        System.out.println("Start Thread");
         byte[] buffer = new byte[1024];
-        int len;
-        InputStream in = null;
+        int len = -1;
         try {
-            while ((len = in.read(buffer)) > -1) {
+            while ((len = tc.getInputStream().read(buffer)) > -1 && !tc.getSerialStop()) {
                 System.out.print(new String(buffer, 0, len));
             }
         } catch (IOException e) {
             System.err.print("Serial Port: IOException: " + e.toString());
         }
+        System.out.println("End Thread");
     }
 }

@@ -1,0 +1,43 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <p:outputLabel />
+    <h:form id="formStatus">
+        <p:growl id="statusMessages" showDetail="true" />
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="#{msg['status.server']}" /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.server}">
+                    <span class="ui-icon ui-icon-#{status.server}"/>
+                </li>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="#{msg['status.threadUDP']}" /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.udp}">
+                    <span class="ui-icon ui-icon-#{status.udp}"/>
+                </li>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="#{msg['status.threadSerial']}" /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.serial}">
+                    <span class="ui-icon ui-icon-#{status.serial}"/>
+                </li>
+            </span>
+        </div>
+        <div class="cdiv">
+            <span class="spos1"><p:outputLabel value="#{msg['status.dbConnection']}" /></span>
+            <span class="spos2">
+                <li class="ui-state-default ui-corner-all" name="#{status.db}">
+                    <span class="ui-icon ui-icon-#{status.db}"/>
+                </li>
+            </span>
+        </div>
+    </h:form>
+</ui:composition>

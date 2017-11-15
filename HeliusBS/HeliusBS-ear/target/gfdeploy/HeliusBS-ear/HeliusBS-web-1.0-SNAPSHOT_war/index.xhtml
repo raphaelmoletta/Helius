@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{msg['system.name']}</title>
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png"/>
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png"/>
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png"/>
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/apple-icon-76x76.png"/>
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/favicon/apple-icon-114x114.png"/>
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/apple-icon-120x120.png"/>
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png"/>
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png"/>
+        <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png"/>
+        <link rel="shortcut icon" href="/images/favicon/favicon-96x96.png" type="image/x-icon"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+        <meta name="theme-color" content="#ffffff"/>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="styles/helius.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form id="formI18N">
+            <img src="images/Logo128.png" alt="#{msg['system.logo']}"/>
+            <p:selectOneMenu id="language" value="#{language.locale.displayLanguage}" style="width:160px;position:absolute;right:10px;top:100px;">
+                <f:selectItems value="#{language.countriesInMap}" noSelectionValue="true" var="locale" 
+                               itemLabel="#{locale.displayLanguage}" itemValue="#{locale.toLanguageTag()}" />
+            </p:selectOneMenu>
+
+            <h:form id="form">
+                <p:growl id="msgs" showDetail="true" />
+                <p:tabView dynamic="true" cache="true">
+                    <p:tab title="#{msg['system.start']}">
+                        <ui:include src="WEB-INF/private/start.xhtml" />
+                    </p:tab>
+                    <p:tab title="#{msg['system.status']}">
+                        <ui:include src="WEB-INF/private/status.xhtml" />
+                    </p:tab>
+                    <p:tab title="#{msg['system.configurations']}">
+                        <ui:include src="WEB-INF/private/configurations.xhtml" />
+                    </p:tab>
+                </p:tabView>
+            </h:form>
+        </h:form>
+    </h:body>
+</html>

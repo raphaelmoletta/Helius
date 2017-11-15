@@ -6,6 +6,10 @@ import gnu.io.NoSuchPortException;
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 import gnu.io.UnsupportedCommOperationException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.ConcurrencyManagement;
 import javax.ejb.ConcurrencyManagementType;
 import javax.ejb.Lock;
@@ -21,11 +25,13 @@ import javax.ejb.Startup;
 @ConcurrencyManagement(ConcurrencyManagementType.CONTAINER)
 @Startup
 public class ThreadCommunication {
-    
+
+    private InputStream in;
+    private boolean serialStop = false;
+
     public ThreadCommunication() {
     }
 
-    @Lock(LockType.READ)
     public boolean isSerialEnable() {
         return false; //serialThread != null && serialThread.isAlive();
     }
@@ -35,23 +41,20 @@ public class ThreadCommunication {
         return false;// udpThread != null && udpThread.isAlive();
     }
 
-    public boolean initSerial(String port) {
-        try {
-            CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(port);
-            if (portIdentifier.isCurrentlyOwned()) {
-                System.err.println("Error: Port is currently in use: " + portIdentifier.getCurrentOwner());
-                return false;
-            } else {
-                CommPort commPort = portIdentifier.open(this.getClass().getName(), 2000);
+    public synchronized InputStream getInputStream() {
+        return in;
+    }
 
-                if (commPort instanceof SerialPort) {
-                    SerialPort serialPort = (SerialPort) commPort;
-                    serialPort.setSerialPortParams(57600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-                    return true;
-                }
-            }
-        } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException e) {
-        }
-        return false;
+    public synchronized void setInputStream(InputStream in) {
+        this.in = in;
+    }
+
+    @Lock(LockType.READ)
+    public synchronized boolean getSerialStop() {
+        return this.serialStop;
+    }
+    @Lock(LockType.WRITE)
+    public synchronized void setSerialStop(boolean serialStop) {
+        this.serialStop = serialStop;
     }
 }

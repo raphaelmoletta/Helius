@@ -18,7 +18,7 @@
         <div class="cdiv">
             <span class="cpos1"><p:outputLabel for="serialList" value="#{msg['configurations.serialport']} " /></span>
             <span class="cpos2">
-                <p:selectOneListbox id="serialList" disabled="#{configurations.serialEnabled}" value="#{configurations.serialPort}">
+                <p:selectOneListbox id="serialList" disabled="#{configurations.serialEnabled}" value="#{configurations.serialPort}" valueChangeListener="">
                     <f:selectItems value="#{configurations.serialPorts}" var="p" />
                 </p:selectOneListbox>
             </span>

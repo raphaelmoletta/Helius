@@ -19,20 +19,26 @@ import org.primefaces.event.FileUploadEvent;
 @Named(value = "configurations")
 @SessionScoped
 public class ConfigurationsMB implements Serializable {
+
     private static final long serialVersionUID = 4966650781932239884L;
-    
+
     private boolean udpEnabled = false, serialEnabled = false;
     private int udpPort = 11000, dbPort = 3306;
     private String serialPort = "";
     private List<String> serialPorts;
 
     public boolean isUdpEnabled() {
-        this.udpEnabled = HeliusEJB.configuration.isUdpEnabled();
         return udpEnabled;
     }
 
     public void setUdpEnabled(boolean udpEnabled) {
-        this.udpEnabled = HeliusEJB.configuration.setUdpEnabled(udpEnabled);
+        if (this.udpEnabled) {
+            this.udpEnabled = HeliusEJB.configuration.stopUDP();
+        } else {
+            if (udpPort > 0 && udpPort < 32000) {
+                this.udpEnabled = HeliusEJB.configuration.startUDP(udpPort);
+            }
+        }
     }
 
     public int getUdpPort() {
@@ -44,21 +50,29 @@ public class ConfigurationsMB implements Serializable {
     }
 
     public boolean isSerialEnabled() {
-        this.serialEnabled = this.serialEnabled = HeliusEJB.configuration.getSerialEnable();
         return serialEnabled;
     }
 
     public void setSerialEnabled(boolean serialEnabled) {
-        this.serialEnabled = HeliusEJB.configuration.setSerialEnable(serialEnabled);
+        System.out.println("serialEnabled: " + serialEnabled);
+        if (serialEnabled) {
+            if (!serialPort.isEmpty()) {
+                this.serialEnabled = HeliusEJB.configuration.startSerial(serialPort);
+            } else if (serialPorts.size() == 1 && !serialPorts.get(0).equalsIgnoreCase("NA")) {
+                this.serialEnabled = HeliusEJB.configuration.startSerial(serialPorts.get(0));
+            }
+        } else {
+            this.serialEnabled = !HeliusEJB.configuration.stopSerial();
+        }
+
     }
 
     public String getSerialPort() {
-        return serialPort;
+        return this.serialPort;
     }
 
     public void setSerialPort(String serialPort) {
         this.serialPort = serialPort;
-        HeliusEJB.configuration.setSerialPort(serialPort);
     }
 
     public List<String> getSerialPorts() {
@@ -77,8 +91,8 @@ public class ConfigurationsMB implements Serializable {
     public void setDbPort(int dbPort) {
         this.dbPort = dbPort;
     }
-    
-    public void handleFileUpload (FileUploadEvent event) {
+
+    public void handleFileUpload(FileUploadEvent event) {
         try {
             HeliusEJB.configuration.upload(event.getFile().getInputstream());
         } catch (IOException ex) {
@@ -87,5 +101,5 @@ public class ConfigurationsMB implements Serializable {
         FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-    
+
 }
