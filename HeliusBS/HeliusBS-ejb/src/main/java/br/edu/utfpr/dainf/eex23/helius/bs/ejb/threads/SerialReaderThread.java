@@ -16,6 +16,7 @@ public class SerialReaderThread extends Thread {
 
     @Override
     public void run() {
+        System.out.println("Start Thread");
         byte[] buffer = new byte[1024];
         int len;
         try {
@@ -25,5 +26,6 @@ public class SerialReaderThread extends Thread {
         } catch (IOException e) {
             System.err.print("Serial Port: IOException: " + e.toString());
         }
+        System.out.println("End Thread");
     }
 }

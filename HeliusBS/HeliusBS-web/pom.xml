@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>HeliusBS</artifactId>
-    <groupId>br.edu.utfpr.dainf.eex23.helius</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+        <artifactId>HeliusBS</artifactId>
+        <groupId>br.edu.utfpr.dainf.eex23.helius</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <groupId>br.edu.utfpr.dainf.eex23.helius</groupId>
     <artifactId>HeliusBS-web</artifactId>
@@ -39,6 +39,18 @@
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-http2</artifactId>
+            <version>2.3.28</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.grizzly</groupId>
+            <artifactId>grizzly-npn-bootstrap</artifactId>
+            <version>1.7</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

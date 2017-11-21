@@ -1,4 +1,2 @@
-/HeliusBS/HeliusBS-data/target/
-/HeliusBS/HeliusBS-conf/target/
-/Helius-beans/target/
-/Helius-beans/nbproject/
+*/target/
+*/nbproject/

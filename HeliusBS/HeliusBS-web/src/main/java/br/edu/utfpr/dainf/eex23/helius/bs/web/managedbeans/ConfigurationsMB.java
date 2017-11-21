@@ -19,11 +19,12 @@ import org.primefaces.event.FileUploadEvent;
 @Named(value = "configurations")
 @SessionScoped
 public class ConfigurationsMB implements Serializable {
+
     private static final long serialVersionUID = 4966650781932239884L;
-    
+
     private boolean udpEnabled = false, serialEnabled = false;
     private int udpPort = 11000, dbPort = 3306;
-    private String serialPort = "";
+    private String serialPort = "ttyACM0";
     private List<String> serialPorts;
 
     public boolean isUdpEnabled() {
@@ -52,7 +53,7 @@ public class ConfigurationsMB implements Serializable {
 
     public void setSerialEnabled(boolean serialEnabled) {
         if (serialEnabled) {
-            this.serialEnabled = HeliusEJB.configuration.startSerial(serialPort);
+            this.serialEnabled = HeliusEJB.configuration.startSerial("/dev/ttyACM0");
         } else {
             this.serialEnabled = HeliusEJB.configuration.stopSerial();
         }
@@ -82,8 +83,8 @@ public class ConfigurationsMB implements Serializable {
     public void setDbPort(int dbPort) {
         this.dbPort = dbPort;
     }
-    
-    public void handleFileUpload (FileUploadEvent event) {
+
+    public void handleFileUpload(FileUploadEvent event) {
         try {
             HeliusEJB.configuration.upload(event.getFile().getInputstream());
         } catch (IOException ex) {
@@ -92,5 +93,5 @@ public class ConfigurationsMB implements Serializable {
         FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
-    
+
 }
