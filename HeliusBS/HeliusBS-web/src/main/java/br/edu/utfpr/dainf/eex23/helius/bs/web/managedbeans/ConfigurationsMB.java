@@ -48,7 +48,8 @@ public class ConfigurationsMB implements Serializable {
     }
 
     public boolean isSerialEnabled() {
-        return serialEnabled;
+        return false;
+        //return serialEnabled;
     }
 
     public void setSerialEnabled(boolean serialEnabled) {

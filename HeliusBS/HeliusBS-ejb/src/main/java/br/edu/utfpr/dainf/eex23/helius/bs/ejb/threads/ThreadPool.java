@@ -9,22 +9,28 @@ import gnu.io.UnsupportedCommOperationException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import javax.ejb.Singleton;
 
 /**
  *
  * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
  */
-@Singleton
 public class ThreadPool {
     
     private ThreadCommunication threadCommunication = null;
     private Thread threadUDP = null, threadSerial = null;
     private SerialListener serialListener;
     private final ExecutorService executor = Executors.newCachedThreadPool();
+    private static ThreadPool tp;
     
-    public ThreadPool() {
+    private ThreadPool() {
         threadCommunication = new ThreadCommunication();
+    }
+    
+    public static ThreadPool getInstance() {
+        if(tp == null) {
+            tp = new ThreadPool();
+        }
+        return tp;
     }
     
     public boolean startSerial(String port) {
@@ -56,14 +62,14 @@ public class ThreadPool {
     }
     
     public boolean startUDP(int port) {
-        if (threadUDP == null) {
+        //if (threadUDP == null) {
             threadCommunication.setUDPStop(false);
             threadCommunication.initSocket(port);
             threadUDP = new Thread(new UDPThread(threadCommunication), "Helius UDP Thread");
             threadUDP.start();
             return true;
-        }
-        return false;
+        //}
+        //return false;
     }
     
     public boolean stopUDP() {
@@ -73,6 +79,18 @@ public class ThreadPool {
     }
     
     public boolean stopSerial() {
+        return false;
+    }
+    
+    public boolean getServerUDPStatus() {
+        return threadUDP != null && threadUDP.isAlive();
+    }
+
+    public boolean getServerSerialStatus() {
+        return threadSerial != null && threadSerial.isAlive();
+    }
+
+    public boolean getServerSQLStatus() {
         return false;
     }
 }

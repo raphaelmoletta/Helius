@@ -3,7 +3,7 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:p="http://primefaces.org/ui" transient="true">
     <h:form id="formConf">
        <p:growl id="confMessages" showDetail="true" />
         <div class="cdiv">
@@ -23,7 +23,7 @@
                 </p:selectOneListbox>
             </span>
             <span class="cpos3">
-                <p:inputSwitch id="serialEnable" value="#{configurations.serialEnabled}">
+                <p:inputSwitch disabled="true" id="serialEnable" value="#{configurations.serialEnabled}">
                     <p:ajax update="formConf"/>
                 </p:inputSwitch>
             </span>

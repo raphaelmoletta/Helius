@@ -1,5 +1,7 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.mci;
 
+import br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads.ThreadPool;
+
 /**
  *
  * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
@@ -7,15 +9,15 @@ package br.edu.utfpr.dainf.eex23.helius.bs.ejb.mci;
 public class StatusEJB {
 
     public boolean getServerDB() {
-        return false;
+        return ThreadPool.getInstance().getServerSQLStatus();
     }
 
     public boolean getServerSerial() {
-        return false;
+        return ThreadPool.getInstance().getServerSerialStatus();
     }
 
     public boolean getServerUDP() {
-        return false;
+        return ThreadPool.getInstance().getServerUDPStatus();
     }
 
     public boolean getServerStatus() {

@@ -10,7 +10,7 @@ import java.util.List;
  * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
  */
 public class ConfigurationsEJB {
-    private final ThreadPool tp = new ThreadPool();
+    
 
     public void upload(InputStream inputstream) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -44,18 +44,18 @@ public class ConfigurationsEJB {
     }
     
     public boolean startSerial(String port) {
-        return tp.startSerial(port);
+        return ThreadPool.getInstance().startSerial(port);
     }
     
     public boolean stopSerial(){
-        return tp.stopSerial();
+        return ThreadPool.getInstance().stopSerial();
     }
     
     public boolean startUDP(int port) {
-        return tp.startUDP(port);
+        return ThreadPool.getInstance().startUDP(port);
     }
     
     public boolean stopUDP() {
-        return tp.stopUDP();
+        return ThreadPool.getInstance().stopUDP();
     }
 }

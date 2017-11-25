@@ -30,7 +30,7 @@
         <link href="styles/helius.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
-        <h:form id="formI18N">
+        <h:form id="formI18N" transient="true">
             <img src="images/Logo128.png" alt="#{msg['system.logo']}"/>
             <p:selectOneMenu id="language" value="#{language.locale.displayLanguage}" style="width:160px;position:absolute;right:10px;top:100px;">
                 <f:selectItems value="#{language.countriesInMap}" noSelectionValue="true" var="locale" 

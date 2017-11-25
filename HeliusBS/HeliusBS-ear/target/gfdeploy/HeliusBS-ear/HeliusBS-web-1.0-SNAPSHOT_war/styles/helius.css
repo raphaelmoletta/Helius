@@ -1,0 +1,66 @@
+/* 
+    Created on : Oct 18, 2017, 1:37:47 PM
+    Author     : Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
+*/
+
+.search {
+    position: absolute;
+    right: 10px;
+    top: 100px;
+}
+
+.cpos1 {
+    /*background-color: red;*/
+    width: 200px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.cpos2 {
+    /*background-color: pink;*/
+    display: inline-block;
+    width: 165px;
+}
+
+.cpos3 {
+    /*background-color: green;*/
+}
+
+.cdiv {
+    padding-bottom: 10px;
+    display: flex;
+}
+
+.spos1 {
+    /*background-color: red;*/
+    width: 150px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.spos2 {
+    /*background-color: pink;*/
+    display: inline-block;
+    list-style-type: none;
+}
+
+.tpos1 {
+    /*background-color: red;*/
+    width: 300px;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.tpos2 {
+    /*background-color: pink;*/
+    display: inline-block;
+    list-style-type: none;
+}
+
+li[name="check"] {
+    background-color: green !important;
+}
+
+li[name="closethick"] {
+    background-color: red !important;
+}
