@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.2\3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf\gson-2.8.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3edcfe49d2c6053a70a2a47e4e1c2f94998a49cf">
+        <dex dex="C:\Users\Dell\Desktop\UTFPR\Materias 2017.2\Oficinas 3\Helius\app\build\intermediates\pre-dexed\debug\gson-2.8.2-7525a2a469d635758b4eda5b0d918308290c3c9c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Dell\Desktop\UTFPR\Materias 2017.2\Oficinas 3\Helius\app\build\intermediates\exploded-aar\com.jjoe64\graphview\4.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="987adec819c9a98faf215814f41195da48fc724e">
+        <dex dex="C:\Users\Dell\Desktop\UTFPR\Materias 2017.2\Oficinas 3\Helius\app\build\intermediates\pre-dexed\debug\classes-560c6a66b11976ef973dfcd3553f94a985ac350d.jar" />
+    </item>
+
+</items>

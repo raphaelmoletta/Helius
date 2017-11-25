@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Helius</string>
+
+    <string name="hello_world">Welcome!</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_button">Entrar</string>
+    <string name="nome_login">Login</string>string>
+    <string name="senha_login">Senha</string>string>
+    <string name="eficiencia">Eficiência:</string>string>
+    <string name="temperatura">Temperatura Ambiente:</string>string>
+    <string name="insidencia">Incidência solar:</string>string>
+    <string name="economia">Economia desde o início:</string>string>
+    <string name="escolha_grafico">Escolha um período:</string>string>
+    <string name="preco_energia">Tarifa atual:</string>string>
+
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_escolha_de_grafico">EscolhaDeGrafico</string>
+    <string name="title_activity_tela_de_graficos">TelaDeGraficos</string>
+    <string name="title_activity_tela_de_economia">TelaDeEconomia</string>
+    <string name="title_activity_show_graphs">showGraphs</string>string>
+</resources>
