@@ -17,7 +17,7 @@ import oficina3abpr.helius.beans.HomeData;
  */
 public class ComunicacaoWebService {
 
-    public static HomeData dadosHome = new HomeData(82.9, 61.4, 27.6, 45.2);
+    private static HomeData dadosHome = new HomeData(0, 0, 0, 0);
     private static GraphData g = new GraphData();
 
 
@@ -25,16 +25,16 @@ public class ComunicacaoWebService {
 
     public static HomeData getHomeData() {
 
-        Date horaAtual = new Date();
-        horaAtual.setTime(horaAtual.getTime() - 60000);
-        if (horaAtual.after(lastDate)) {
-            lastDate = new Date();
+        //Date horaAtual = new Date();
+        //horaAtual.setTime(horaAtual.getTime() - 60000);
+        //if (horaAtual.after(lastDate)) {
+            //lastDate = new Date();
             String resposta = getURL("/home");
             Gson gson = new Gson();
             return (HomeData) gson.fromJson(resposta, HomeData.class);
-        }
+       // }
 
-        return null;
+       // return null;
 
     }
 

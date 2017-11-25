@@ -18,16 +18,16 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         TextView textoEconomia= (TextView)findViewById(R.id.textView8);
-        textoEconomia.setText(" " + ComunicacaoWebService.dadosHome.getEconomia() + " reais");
+        textoEconomia.setText(" " + ComunicacaoWebService.getHomeData().getEconomia() + " reais");
 
         TextView textoIncidencia= (TextView)findViewById(R.id.textView6);
-        textoIncidencia.setText(" " + ComunicacaoWebService.dadosHome.getIncidencia());
+        textoIncidencia.setText(" " + ComunicacaoWebService.getHomeData().getIncidencia());
 
         TextView textoTemperatura= (TextView)findViewById(R.id.textView4);
-        textoTemperatura.setText(" " + ComunicacaoWebService.dadosHome.getTemperatura() + " graus" );
+        textoTemperatura.setText(" " + ComunicacaoWebService.getHomeData().getTemperatura() + " graus" );
 
         TextView textoEficiencia= (TextView)findViewById(R.id.textView2);
-        textoEficiencia.setText(" " + ComunicacaoWebService.dadosHome.getEficiencia() + "%");
+        textoEficiencia.setText(" " + ComunicacaoWebService.getHomeData().getEficiencia() + "%");
 
 
     }
