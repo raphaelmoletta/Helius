@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import oficina3abpr.helius.beans.HomeData;
 import oficina3abpr.helius.heliusac.ComunicacaoWebService;
 
 public class Home extends AppCompatActivity {
@@ -29,7 +28,6 @@ public class Home extends AppCompatActivity {
 
         TextView textoEficiencia= (TextView)findViewById(R.id.textView2);
         textoEficiencia.setText(" " + ComunicacaoWebService.dadosHome.getEficiencia() + "%");
-
 
 
     }

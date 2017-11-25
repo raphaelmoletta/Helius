@@ -1,10 +1,6 @@
 package oficina3abpr.helius.heliusac;
 
-import com.google.gson.Gson;
-import com.jjoe64.graphview.series.DataPoint;
-
 import oficina3abpr.helius.beans.GraphData;
-import oficina3abpr.helius.beans.HomeData;
 
 /**
  *
