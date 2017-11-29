@@ -2,6 +2,7 @@
 /home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/SerialReaderThread.java
 /home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/mci/StatusEJB.java
 /home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/SerialListener.java
+/home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/mci/MobileConnectorEJB.java
 /home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/ThreadPool.java
 /home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/mci/ConfigurationsEJB.java
 /home/rapha/Documents/projects/Helius/HeliusBS/HeliusBS-ejb/src/main/java/br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/UDPThread.java

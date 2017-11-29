@@ -1,7 +1,5 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.data;
 
-import javax.xml.crypto.Data;
-
 /**
  *
  * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
@@ -19,7 +17,7 @@ public class HeliusData {
         return hd;
     }
     
-    public synchronized boolean add(Data data) {
+    public synchronized boolean add(HeliusData data) {
         
         return false;
     }

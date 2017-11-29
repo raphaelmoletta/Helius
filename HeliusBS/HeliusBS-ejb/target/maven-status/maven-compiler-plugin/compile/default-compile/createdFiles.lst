@@ -1,4 +1,5 @@
 br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/ThreadCommunication.class
+br/edu/utfpr/dainf/eex23/helius/bs/ejb/mci/MobileConnectorEJB.class
 br/edu/utfpr/dainf/eex23/helius/bs/ejb/mci/ConfigurationsEJB.class
 br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/ThreadPool.class
 br/edu/utfpr/dainf/eex23/helius/bs/ejb/threads/UDPThread.class
