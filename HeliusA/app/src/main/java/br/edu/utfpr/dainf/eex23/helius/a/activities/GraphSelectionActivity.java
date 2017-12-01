@@ -1,4 +1,4 @@
-package br.edu.utfpr.dainf.eex23.helius.a;
+package br.edu.utfpr.dainf.eex23.helius.a.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,41 +7,45 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class EscolhaDeGrafico extends AppCompatActivity {
+import br.edu.utfpr.dainf.eex23.helius.a.R;
+import br.edu.utfpr.dainf.eex23.helius.a.ac.HeliusAC;
+
+public class GraphSelectionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_escolha_de_grafico);
+        setContentView(R.layout.graph_selection_activity);
     }
 
     public void irParaTelaGraficos1(View view) {
-        Intent intentA = new Intent(getApplicationContext(), showGraphs.class);
-        startActivity(intentA);
-
-
+        //eficiencia
+        HeliusAC.setGraph(HeliusAC.TYPE.efficiency);
+        loadGraph();
     }
 
     public void irParaTelaGraficos2(View view) {
-        Intent intentB = new Intent(getApplicationContext(), TelaDeGraficos.class);
-        startActivity(intentB);
-
-
+        //corrente
+        HeliusAC.setGraph(HeliusAC.TYPE.current);
+        loadGraph();
     }
 
     public void irParaTelaGraficos3(View view) {
-        Intent intentC = new Intent(getApplicationContext(), TelaDeGraficos.class);
-        startActivity(intentC);
-
-
+        //tensão
+        HeliusAC.setGraph(HeliusAC.TYPE.voltage);
+        loadGraph();
     }
 
 
     public void irParaTelaGraficos4(View view) {
-        Intent intentD = new Intent(getApplicationContext(), TelaDeEconomia.class);
-        startActivity(intentD);
+        //economia
+        HeliusAC.setGraph(HeliusAC.TYPE.economy);
+        loadGraph();
+    }
 
-
+    private void loadGraph() {
+        Intent intent = new Intent(getApplicationContext(), ShowGraphActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -53,12 +57,8 @@ public class EscolhaDeGrafico extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
