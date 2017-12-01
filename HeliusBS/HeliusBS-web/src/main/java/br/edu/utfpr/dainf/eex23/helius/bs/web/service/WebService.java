@@ -2,7 +2,6 @@ package br.edu.utfpr.dainf.eex23.helius.bs.web.service;
 
 import br.edu.utfpr.dainf.eex23.helius.bs.ejb.HeliusEJB;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,26 +29,33 @@ public class WebService extends HttpServlet {
             throws ServletException, IOException {
         if (request != null && !request.getRequestURI().isEmpty()) {
             String url = request.getRequestURI();
+            System.out.println("URL: " + url);
             if (url.endsWith("/")) {
                 url = url.substring(0, url.length() - 2);
             }
+            String time = "";
+            if (url.contains("?")) {
+                time = url.substring(url.lastIndexOf("?") + 1, url.length());
+                url = url.substring(url.lastIndexOf("?") + 1, url.length());
+            }
+            
             url = url.substring(url.lastIndexOf("/"), url.length());
             response.setContentType("application/json;charset=UTF-8");
             switch (url) {
                 case "/home":
                     response.getWriter().println(HeliusEJB.mobile.getHome());
                     break;
-                case "/tensao":
-                    response.getWriter().println("{'teste':'tensao'}");
+                case "/vo":
+                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
                     break;
-                case "/corrente":
-                    response.getWriter().println("{'teste':'corrente'}");
+                case "/cu":
+                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
                     break;
-                case "/eficiencia":
-                    response.getWriter().println("{'teste':'eficiencia'}");
+                case "/ef":
+                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
                     break;
-                case "/incidencia":
-                    response.getWriter().println("{'teste':'incidencia'}");
+                case "/ec":
+                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
                     break;
                 
             }

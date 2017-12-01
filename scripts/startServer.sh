@@ -12,6 +12,8 @@ rfkill unblock all
 echo -e "${BODY}->Setting WIFI ip${RESPONSE}"
 ifconfig wlan0 10.0.0.1/24 up
 echo -e "${BODY}->Configuring NAT${RESPONSE}"
+ufw allow 8080/tcp
+ufw allow 80/tcp
 iptables -t nat -F
 iptables -F
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE

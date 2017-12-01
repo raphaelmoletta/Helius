@@ -1,12 +1,5 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads;
 
-import gnu.io.CommPort;
-import gnu.io.CommPortIdentifier;
-import gnu.io.NoSuchPortException;
-import gnu.io.PortInUseException;
-import gnu.io.SerialPort;
-import gnu.io.UnsupportedCommOperationException;
-import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -34,6 +27,8 @@ public class ThreadPool {
     }
     
     public boolean startSerial(String port) {
+        return false;
+        /*
         try {
             CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(port);
             if (portIdentifier.isCurrentlyOwned()) {
@@ -57,11 +52,11 @@ public class ThreadPool {
             }
         } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException | IOException e) {
             System.out.println("Erro");
-        }
-        return false;
+        }*/
     }
     
     public boolean startUDP(int port) {
+        
         //if (threadUDP == null) {
             threadCommunication.setUDPStop(false);
             threadCommunication.initSocket(port);

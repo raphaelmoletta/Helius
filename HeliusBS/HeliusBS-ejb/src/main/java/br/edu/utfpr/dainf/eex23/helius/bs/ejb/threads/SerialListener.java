@@ -5,25 +5,14 @@
  */
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads;
 
-import gnu.io.CommPortIdentifier;
-import gnu.io.NoSuchPortException;
-import gnu.io.PortInUseException;
-import gnu.io.SerialPort;
-import gnu.io.SerialPortEvent;
-import gnu.io.SerialPortEventListener;
-import gnu.io.UnsupportedCommOperationException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.TooManyListenersException;
-
 /**
  *
  * @author Raphael Zagonel Moletta <raphael.moletta@gmail.com>
  */
-public class SerialListener implements SerialPortEventListener {
+public class SerialListener {// implements SerialPortEventListener {
 
-    private InputStream input;
-    private SerialPort serialPort;
+    //private InputStream input;
+    //private SerialPort serialPort;
     /**
      * Milliseconds to block while waiting for port open
      */
@@ -36,6 +25,7 @@ public class SerialListener implements SerialPortEventListener {
     private ThreadCommunication tc;
 
     public boolean initialize(String port) {
+        /*
         try {
             CommPortIdentifier portId = CommPortIdentifier.getPortIdentifier(port);
 
@@ -64,7 +54,7 @@ public class SerialListener implements SerialPortEventListener {
             return true;
         } catch (NoSuchPortException | PortInUseException | UnsupportedCommOperationException | IOException | TooManyListenersException e) {
             System.err.println(e.toString());
-        }
+        }*/
         return false;
     }
 
@@ -75,11 +65,12 @@ public class SerialListener implements SerialPortEventListener {
      * @return
      */
     public synchronized boolean close() {
+        /*
         if (serialPort != null) {
             serialPort.removeEventListener();
             serialPort.close();
             return true;
-        }
+        }*/
         return false;
     }
 
@@ -88,8 +79,9 @@ public class SerialListener implements SerialPortEventListener {
      *
      * @param oEvent
      */
-    @Override
-    public synchronized void serialEvent(SerialPortEvent oEvent) {
+    //@Override
+    public synchronized void serialEvent(){//SerialPortEvent oEvent) {
+        /*
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 while (oEvent.getEventType() != SerialPortEvent.DATA_AVAILABLE) {
@@ -103,6 +95,7 @@ public class SerialListener implements SerialPortEventListener {
             }
         }
         // Ignore all the other eventTypes, but you should consider the other ones.
+*/
     }
 
 }

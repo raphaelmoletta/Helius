@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by Dell on 15/11/2017.
  */
-public class DataPointHelius {//extends DataPoint implements Serializable {
+public class DataPoint {//extends DataPoint implements Serializable {
 
     private static final long serialVersionUID = 7640412432722849632L;
     @SerializedName(value = "x")
@@ -17,13 +17,10 @@ public class DataPointHelius {//extends DataPoint implements Serializable {
     @SerializedName(value = "y")
     private double y;
 
-    public DataPointHelius(double x, double y) {
-       //super(x, y);
+    public DataPoint(double x, double y) {
+       this.x = x;
+       this.y = y;
 
-    }
-
-    public DataPointHelius(Date x, double y) {
-        //super((double)x.getTime(), y);
     }
 
     //@Override

@@ -37,6 +37,10 @@ public class Data implements Serializable {
         this.changeStatus();
     }
 
+    public Data(String id, STATUS status) {
+        this(id, status, new ArrayList<Eletrical>(), new ArrayList<Wheather>());
+    }
+    
     public Data(STATUS status) {
         this("", status, new ArrayList<Eletrical>(), new ArrayList<Wheather>());
     }
