@@ -1,5 +1,6 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.mci;
 
+import br.edu.utfpr.dainf.eex23.helius.bs.data.HeliusData;
 import br.edu.utfpr.dainf.eex23.helius.bs.ejb.threads.ThreadPool;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -10,14 +11,13 @@ import java.util.List;
  * @author Raphael Zagonel Moletta <raphael@alunos.utfpr.edu.br>
  */
 public class ConfigurationsEJB {
-    
 
     public void upload(InputStream inputstream) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public List<String> getSerialPorts() {
-        
+
         List<String> serialPorts = new ArrayList<>();
         serialPorts.add("ttyACM0");
         /*
@@ -42,20 +42,28 @@ public class ConfigurationsEJB {
         }*/
         return serialPorts;
     }
+
+    public boolean startDB(String connection,String driver, String username, String password) {
+        return HeliusData.getInstance().startConnection(driver, connection, username, password);
+    }
     
     public boolean startSerial(String port) {
         return ThreadPool.getInstance().startSerial(port);
     }
-    
-    public boolean stopSerial(){
+
+    public boolean stopSerial() {
         return ThreadPool.getInstance().stopSerial();
     }
-    
+
     public boolean startUDP(int port) {
         return ThreadPool.getInstance().startUDP(port);
     }
-    
+
     public boolean stopUDP() {
         return ThreadPool.getInstance().stopUDP();
+    }
+
+    public boolean setDB(String driver, String connectionPath, String username, String password) {
+        return HeliusData.getInstance().startConnection(driver, connectionPath, username, password);
     }
 }

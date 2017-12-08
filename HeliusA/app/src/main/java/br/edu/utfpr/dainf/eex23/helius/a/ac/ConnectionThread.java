@@ -36,10 +36,10 @@ public class ConnectionThread implements Runnable {
                 response.append(inputLine);
             }
             in.close();
-            DTO.setStatus(DTO.STATUS.OK);
+            DTO.setStatus(br.edu.utfpr.dainf.eex23.helius.a.beans.DTO.STATUS.OK);
             DTO.setData(new String(response));
         } catch (Exception e) {
-            DTO.setStatus(DTO.STATUS.ERROR);
+            DTO.setStatus(br.edu.utfpr.dainf.eex23.helius.a.beans.DTO.STATUS.ERROR);
             DTO.setData(e.getLocalizedMessage());
         }
     }

@@ -33,11 +33,6 @@ public class WebService extends HttpServlet {
             if (url.endsWith("/")) {
                 url = url.substring(0, url.length() - 2);
             }
-            String time = "";
-            if (url.contains("?")) {
-                time = url.substring(url.lastIndexOf("?") + 1, url.length());
-                url = url.substring(url.lastIndexOf("?") + 1, url.length());
-            }
             
             url = url.substring(url.lastIndexOf("/"), url.length());
             response.setContentType("application/json;charset=UTF-8");
@@ -46,16 +41,16 @@ public class WebService extends HttpServlet {
                     response.getWriter().println(HeliusEJB.mobile.getHome());
                     break;
                 case "/vo":
-                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
+                    response.getWriter().println(HeliusEJB.mobile.getGraphVoltage());
                     break;
                 case "/cu":
-                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
+                    response.getWriter().println(HeliusEJB.mobile.getGraphCurrent());
                     break;
                 case "/ef":
-                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
+                    response.getWriter().println(HeliusEJB.mobile.getGraphEfficiency());
                     break;
                 case "/ec":
-                    response.getWriter().println(HeliusEJB.mobile.getGraph(time));
+                    response.getWriter().println(HeliusEJB.mobile.getGraphEconomy());
                     break;
                 
             }

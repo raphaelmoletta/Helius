@@ -23,8 +23,10 @@ public class ConfigurationsMB implements Serializable {
     private static final long serialVersionUID = 4966650781932239884L;
 
     private boolean udpEnabled = false, serialEnabled = false;
-    private int udpPort = 11000, dbPort = 3306;
-    private String serialPort = "ttyACM0";
+    private int udpPort = 11000;
+    private String serialPort = "ttyACM0", driver = "com.mysql.jdbc.Driver",
+            connectionPath = "jdbc:mysql://localhost:3306/heliusdb",
+            username = "root", password = "Pipeline00";
     private List<String> serialPorts;
 
     public boolean isUdpEnabled() {
@@ -33,6 +35,8 @@ public class ConfigurationsMB implements Serializable {
 
     public void setUdpEnabled(boolean udpEnabled) {
         if (udpEnabled) {
+            boolean b = HeliusEJB.configuration.setDB(driver, connectionPath, username, password);
+            HeliusEJB.configuration.startDB(connectionPath, driver, username, password);
             this.udpEnabled = HeliusEJB.configuration.startUDP(udpPort);
         } else {
             this.udpEnabled = HeliusEJB.configuration.stopUDP();
@@ -77,14 +81,6 @@ public class ConfigurationsMB implements Serializable {
         //Leave Blank
     }
 
-    public int getDbPort() {
-        return dbPort;
-    }
-
-    public void setDbPort(int dbPort) {
-        this.dbPort = dbPort;
-    }
-
     public void handleFileUpload(FileUploadEvent event) {
         try {
             HeliusEJB.configuration.upload(event.getFile().getInputstream());
@@ -93,6 +89,38 @@ public class ConfigurationsMB implements Serializable {
         }
         FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public String getConnectionPath() {
+        return connectionPath;
+    }
+
+    public void setConnectionPath(String connectionPath) {
+        this.connectionPath = connectionPath;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

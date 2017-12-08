@@ -31,20 +31,31 @@
         <div class="cdiv">
             <span class="cpos1"><p:outputLabel for="fileUpload" value="#{msg['configurations.table']}" /></span>
             <span >
-                <p:fileUpload id="fileUpload" fileUploadListener="#{configurations.handleFileUpload}" 
+                <p:fileUpload id="fileUpload" disabled="true" fileUploadListener="#{configurations.handleFileUpload}" 
                           mode="advanced" skinSimple="false" update="confMessages"
                           allowTypes="/(\.|\/)(csv)$/" fileLimit="1"
                           dragDropSupport="true"/>
             </span>
         </div>
         <div class="cdiv">
-            <span class="cpos1"><p:outputLabel for="dbPort" value="#{msg['configurations.dbport']}" /></span>
-            <span class="cpos2"><p:inputText id="dbPort" size="5" value="#{configurations.dbPort}"/></span>
+            <span class="cpos1"><p:outputLabel for="dbconnectionpath" value="#{msg['configurations.dbconnectionpath']}"/></span>
+            <span class="cpos2"><p:inputText id="dbconnectionpath" value="#{configurations.connectionPath}"/></span>
             <span class="cpos3"></span>
         </div>
         <div class="cdiv">
-            <span class="cpos1"></span>
-            <span class="cpos2"></span>
+            <span class="cpos1"><p:outputLabel for="dbdriver" value="#{msg['configurations.dbdriver']}"/></span>
+            <span class="cpos2"><p:inputText id="dbdriver" value="#{configurations.driver}"/></span>
+            <span class="cpos3"></span>
+        </div>
+       
+       <div class="cdiv">
+           <span class="cpos1"><p:outputLabel for="dbusername" value="#{msg['configurations.dbusername']}"/></span>
+           <span class="cpos2"><p:inputText id="dbusername" value="#{configurations.username}"/></span>
+            <span class="cpos3"></span>
+        </div>
+       <div class="cdiv">
+           <span class="cpos1"><p:outputLabel for="dbpassword" value="#{msg['configurations.dbpassword']}"/></span>
+           <span class="cpos2"><p:password id="dbpassword" value="#{configurations.password}"/></span>
             <span class="cpos3"></span>
         </div>
     </h:form>

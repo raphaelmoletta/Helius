@@ -23,12 +23,12 @@ public class LogonActivity extends AppCompatActivity {
 
     public void goHomeActivity(View view) {
         DTO DTO = HeliusAC.getHomeData();
-        if (DTO.getStatus() == DTO.STATUS.OK) {
+        //if (DTO.getStatus() == br.edu.utfpr.dainf.eex23.helius.a.beans.DTO.STATUS.OK) {
             Intent intentl = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(intentl);
-        } else {
-            errorMessage(DTO.getData());
-        }
+        //} else {
+        //    errorMessage(DTO.getData());
+        //}
 
     }
 

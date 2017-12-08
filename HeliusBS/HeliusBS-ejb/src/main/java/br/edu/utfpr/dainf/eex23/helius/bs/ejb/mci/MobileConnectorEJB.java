@@ -1,7 +1,8 @@
 package br.edu.utfpr.dainf.eex23.helius.bs.ejb.mci;
 
-import br.edu.utfpr.dainf.eex23.helius.beans.GraphData;
+import br.edu.utfpr.dainf.eex23.helius.beans.GraphsCollection;
 import br.edu.utfpr.dainf.eex23.helius.beans.HomeData;
+import br.edu.utfpr.dainf.eex23.helius.bs.data.HeliusData;
 import com.google.gson.Gson;
 
 /**
@@ -9,22 +10,28 @@ import com.google.gson.Gson;
  * @author rapha
  */
 public class MobileConnectorEJB {
+    private Gson gson = new Gson();
     public String getHome() {
-        Gson g = new Gson();
-        HomeData h = new HomeData(2.5, 2.6, 2.7, 2.8);
-        return g.toJson(h,HomeData.class);
+        return gson.toJson(HeliusData.getInstance().getHome(),HomeData.class);
     }
 
-    public String getGraph(String time) {
-        switch(time) {
-            case "year":
-            case "month":
-            case "week":
-            case "day":
-        }
-        Gson gson = new Gson();
-        GraphData gd = new GraphData();
-        System.out.println(gd.getGraphVector().toString());
-        return gson.toJson(gd, GraphData.class);
+    public String getGraphCurrent() {        
+        GraphsCollection gd = HeliusData.getInstance().getGraphCurrent();
+        return gson.toJson(gd, GraphsCollection.class);
+    }
+
+    public String getGraphVoltage() {
+        GraphsCollection gd = HeliusData.getInstance().getGraphsVoltage();
+        return gson.toJson(gd, GraphsCollection.class);
+    }
+
+    public String getGraphEfficiency() {
+        GraphsCollection gd = HeliusData.getInstance().getGraphsEfficiency();
+        return gson.toJson(gd, GraphsCollection.class);
+    }
+
+    public String getGraphEconomy() {
+        GraphsCollection gd = HeliusData.getInstance().getGraphsEconomy();
+        return gson.toJson(gd, GraphsCollection.class);
     }
 }

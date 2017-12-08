@@ -22,7 +22,7 @@ public class WebServiceConnection{
             return DTO;
         } catch (Exception e) {
             System.out.println(e.toString());
-            DTO.setStatus(DTO.STATUS.ERROR);
+            DTO.setStatus(br.edu.utfpr.dainf.eex23.helius.a.beans.DTO.STATUS.ERROR);
             DTO.setData(e.getLocalizedMessage());
             return DTO;
         }

@@ -29,10 +29,10 @@ public class HomeActivity extends AppCompatActivity {
                 fillError(DTO);
                 return false;
             case EMPTY:
-                fillError(new DTO("Dados vazios!","", DTO.STATUS.EMPTY));
+                fillError(new DTO("Dados vazios!","", br.edu.utfpr.dainf.eex23.helius.a.beans.DTO.STATUS.EMPTY));
                 return false;
             default:
-                fillError(new DTO("Erro desconhecido!","", DTO.STATUS.EMPTY));
+                fillError(new DTO("Erro desconhecido!","", br.edu.utfpr.dainf.eex23.helius.a.beans.DTO.STATUS.EMPTY));
                 return false;
         }
     }

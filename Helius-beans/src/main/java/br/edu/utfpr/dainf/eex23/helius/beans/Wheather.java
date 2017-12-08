@@ -52,4 +52,11 @@ public class Wheather implements Serializable {
         this.irradiance = irradiance;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
